@@ -1,6 +1,7 @@
 import { Endpoints } from "@/components/shared/Endpoints";
 import baseApi from "@/lib/baseApi";
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { AxiosError } from "axios";
 
 
 export const getUser = createAsyncThunk("users/getUser", async (id: string, { rejectWithValue }) => {
@@ -8,6 +9,9 @@ export const getUser = createAsyncThunk("users/getUser", async (id: string, { re
         const response = await baseApi.get(Endpoints.GET_USERS, { params: { id } })
         return response.data
     } catch (error) {
-        return rejectWithValue(error || "getUser failed")
+        if (error instanceof AxiosError) {
+            return rejectWithValue(error.message)
+        }
+        return rejectWithValue("Get user failed")
     }
 })

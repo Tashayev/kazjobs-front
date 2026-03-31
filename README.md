@@ -101,4 +101,4 @@ Endpoints used:
 
 ## Author
 
-Built as a fullstack portfolio project targeting the Kazakhstan job market
+Built as a fullstack portfolio project targeting the Kazakhstan job market# kazjobs-front

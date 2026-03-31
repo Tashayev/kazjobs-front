@@ -2,7 +2,7 @@
 
 const AuthPage = () => {
   return (
-    <div>
+    <div className="pt-100">
       <h1>Auth Page</h1>
     </div>
   )

@@ -8,7 +8,7 @@ export type UserTypes = {
   updatedAt: string
 }
 
-export type UserRgisterTypes = {
+export type UserRegisterTypes = {
   username: string
   email: string
   password: string
@@ -16,7 +16,12 @@ export type UserRgisterTypes = {
 }
 
 export type UserState = {
-  user: UserTypes
+  user: UserTypes | null;
   isAuthenticated: boolean
   isLoading: boolean
+}
+
+export type UserLoginTypes = {
+  email: string
+  password: string
 }

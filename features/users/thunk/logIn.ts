@@ -1,16 +1,20 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { UserTypes } from "../types";
+import { UserLoginTypes } from "../types";
 import { Endpoints } from "@/components/shared/Endpoints";
 import baseApi from "@/lib/baseApi";
+import { AxiosError } from "axios";
 
 export const logIn = createAsyncThunk(
   "users/logIn",
-  async (user: UserTypes, { rejectWithValue }) => {
+  async (user: UserLoginTypes, { rejectWithValue }) => {
     try {
       const response = await baseApi.post(Endpoints.LOGIN, user)
       return response.data
     } catch (error) {
-      return rejectWithValue(error || "login failed")
+      if(error instanceof AxiosError) {
+        return rejectWithValue(error.response?.data?.message || "Login failed")
+      }
+      return rejectWithValue("Login failed")
     }
   },
 )
