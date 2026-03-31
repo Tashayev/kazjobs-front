@@ -1,3 +1,4 @@
+"use client"
 import { CATEGORIES } from '@/constants'
 import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
