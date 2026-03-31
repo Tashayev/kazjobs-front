@@ -1,9 +1,11 @@
 "use client"
 
+import AuthTabs from "@/app/auth/_components/AuthTabs"
+
 const AuthPage = () => {
   return (
-    <div className="pt-100">
-      <h1>Auth Page</h1>
+    <div className="flex justify-center mt-5">
+      <AuthTabs />
     </div>
   )
 }

@@ -1,7 +1,5 @@
-const ProfilePage = () => {
-  return (
-    <div>Profile Page</div>
-  )
-}   
+import { redirect } from "next/navigation"
 
-export default ProfilePage
+export default function ProfilePage() {
+  redirect("/profile/personal")
+}

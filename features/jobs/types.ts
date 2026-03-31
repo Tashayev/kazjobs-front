@@ -1,15 +1,39 @@
-import { UserTypes } from "../users/types"
 
-export type JobTypes = {
+export type Job = {
   _id: string
   title: string
   description: string
-  salary?: number
   location?: string
-  type?: "full-time" | "part-time" | "remote"
+  salary?: string
+  category?: string
+  type?: string
   skills?: string[]
   deadline?: string
-  employer: UserTypes
-  createdAt: string
-  updatedAt: string
+  employer?: { username: string; email: string },
+  createdAt?: string
+  updatedAt?: string
 }
+
+export type JobState = {
+  jobs: Job[]
+  selectedJob: Job | null
+  isLoading: boolean
+  selectedJobLoading?: boolean
+}
+
+export type JobFilters = {
+  category?: string
+  type?: string
+  location?: string
+}
+export type CreateJobPayload = {
+  title: string
+  description: string
+  salary?: string
+  location?: string
+  skills?: string[]
+  type?: string
+  deadline?: string
+  category?: string
+}
+        

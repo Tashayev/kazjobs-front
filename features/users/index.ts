@@ -2,10 +2,11 @@
 import { useAppDispatch, useAppSelector } from "@/components/hooks/useReduxTypes"
 import  { registerUser } from "./thunk/createUser"
 import { useCallback } from "react"
-import { UserLoginTypes, UserRegisterTypes } from "./types"
+import { UserLoginTypes, UserRegisterTypes, UserUpdateTypes } from "./types"
 import { logIn } from "./thunk/logIn"
 import { getProfile } from "./thunk/getProfile"
-
+import { changePassword } from "./thunk/changePassword"
+import { updateProfile } from "./thunk/updateProfile"
 
 const useUser = () => {
   const dispatch = useAppDispatch()
@@ -18,6 +19,7 @@ const useUser = () => {
 
   const handleLogIn = useCallback(
     (data: UserLoginTypes) => dispatch(logIn(data)),
+    
     [dispatch],
   )
 
@@ -26,6 +28,15 @@ const useUser = () => {
     [dispatch],
   )
 
+  const handleChangePassword = useCallback(
+    async (data: { oldPassword: string, newPassword: string }) => await dispatch(changePassword(data)),
+    [dispatch],
+  )
+
+  const handleUpdateProfile = useCallback(
+    async (data: UserUpdateTypes) => await dispatch(updateProfile(data)),
+    [dispatch],
+  )
   return {
     user,
     isLoading,
@@ -33,6 +44,8 @@ const useUser = () => {
     handleRegister,
     handleLogIn,
     handleGetProfile,
+    handleChangePassword,
+    handleUpdateProfile
   }
 }
 

@@ -7,7 +7,7 @@ export const getUsers = createAsyncThunk(
   "users/getUsers", 
   async (role: string | undefined, { rejectWithValue }) => {
     try {
-      const response = await baseApi.get(Endpoints.GET_USERS, {
+      const response = await baseApi.get(Endpoints.USERS, {
         params: role ? { role } : {}
       })
       return response.data

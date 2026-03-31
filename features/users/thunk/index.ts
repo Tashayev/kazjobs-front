@@ -17,7 +17,7 @@ export const extraReducers = (builder: ActionReducerMapBuilder<UserState>) => {
       getProfile.fulfilled,
     ),
     (state, action) => {
-      state.user = action.payload
+      state.user = action.payload.user
       state.isAuthenticated = true
     },
   )

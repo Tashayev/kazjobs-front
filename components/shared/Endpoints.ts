@@ -5,11 +5,14 @@ export enum Endpoints {
     REGISTER = '/users/register', 
     PROFILE = '/users/profile',
     LOGOUT = '/users/logout',
-    GET_USERS = '/users',
+    USERS = '/users',
     REFRESH_TOKEN = '/users/refresh',
+    CHANGE_PASSWORD = '/users/change-password',
     //jobs
     JOBS = '/jobs',
     JOB = '/jobs/:id',
+    JOBS_BY_CATEGORY = '/jobs/category',
+    JOBS_BY_EMPLOYER = '/jobs/employer',
     //applications
     APPLICATIONS = '/applications',
     APPLICATION = '/applications/:id',    
