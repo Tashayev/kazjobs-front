@@ -1,9 +1,9 @@
-import { JobTypes } from "../jobs/types"
+import { Job } from "../jobs/types"
 import { UserTypes } from "../users/types"
 
 export type ApplicationType = {
   _id: string
-  job: JobTypes
+  job: Job
   applicant: UserTypes
   status: "pending" | "accepted" | "rejected"
   CV?: string
