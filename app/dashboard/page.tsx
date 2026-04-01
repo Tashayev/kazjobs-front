@@ -13,7 +13,8 @@ import { TYPE_COLORS } from "@/constants"
 
 const DashboardPage = () => {
   const { user, isAuthenticated } = useUser()
-  const { jobs, isLoading, handleGetJobsByEmployer, handleDeleteJob } = useJobs()
+  const { jobs, isLoading, handleGetJobsByEmployer, handleDeleteJob } =
+    useJobs()
   const router = useRouter()
 
   const isEmployer = user?.role === "employer"
@@ -94,7 +95,10 @@ const DashboardPage = () => {
       {isLoading ? (
         <div className="space-y-3">
           {Array.from({ length: 3 }).map((_, i) => (
-            <div key={i} className="h-20 rounded-xl bg-gray-100 animate-pulse" />
+            <div
+              key={i}
+              className="h-20 rounded-xl bg-gray-100 animate-pulse"
+            />
           ))}
         </div>
       ) : jobs.length === 0 ? (
@@ -107,7 +111,10 @@ const DashboardPage = () => {
       ) : (
         <div className="space-y-3">
           {jobs.map((job) => (
-            <Card key={job._id} className="border border-gray-100 hover:border-blue-200 transition-all">
+            <Card
+              key={job._id}
+              className="border border-gray-100 hover:border-blue-200 transition-all"
+            >
               <CardContent className="p-5 flex items-center justify-between gap-4">
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 mb-1">
@@ -125,7 +132,9 @@ const DashboardPage = () => {
                   </div>
                   <div className="flex items-center gap-3 text-xs text-gray-400">
                     {job.location && <span>{job.location}</span>}
-                    {job.salary && <span>₸{job.salary.toLocaleString()}/mo</span>}
+                    {job.salary && (
+                      <span>₸{job.salary.toLocaleString()}/mo</span>
+                    )}
                     {job.deadline && (
                       <span>
                         Deadline:{" "}
